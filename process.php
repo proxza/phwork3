@@ -25,6 +25,7 @@ if (isset($_POST['action']) && $_POST['action'] == "save"){
     }
 
     $name = $_POST['name'];
+    $dates = date("d.m.Y G:i");
     $comment = $_POST['comment'];
     $email = $_POST['email'];
     $avatar = $_FILES['avatar']['name'];
@@ -38,20 +39,13 @@ if (isset($_POST['action']) && $_POST['action'] == "save"){
         $comment = str_replace($item, "[МАТ]", $comment);
     }
 
-    $email = str_replace("@", "[at]", $email);
+    $email = str_replace("@", "[at]", $email); // Замена адреса почты
+    $comment = preg_replace('/\[(\/?)(b|i|u|s)\s*\]/', "<$1$2>", $comment);
+    $comment = preg_replace("/\[img\s*\]([^\]\[]+)\[\/img\]/", "<img src=\"$1\" alt=\"\" />", $comment); // Регулярка на BBCODE тега [img]адрес_картинки[/img]
 
-    array_push($comments, ["name"=>$name, "email"=>$email, "avatar"=>$avatar, "comment"=>$comment]);
+    array_push($comments, ["name"=>$name, "dates"=>$dates, "email"=>$email, "avatar"=>$avatar, "comment"=>$comment]);
     file_put_contents(FILE_NAME, serialize($comments));
 
 }
-
-/*
-$res = fopen("db.txt", "a+");
-$str = $_POST['name'].":".$_POST['comment'];
-$result = fwrite($res, $str);
-
-fclose($res);
-
-*/
 
 ?>

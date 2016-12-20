@@ -14,9 +14,14 @@ include "process.php";
         }
 
         table {
-            margin: 0 auto;
+            margin: 50px auto;
             font-size: 12px;
             border: 1px solid;
+        }
+
+        .small-hint {
+            font-size: 10px;
+            color: cornflowerblue;
         }
 
     </style>
@@ -43,7 +48,13 @@ if (is_array($comments) OR empty($comments)) {
             <td>Ваш аватар:</td><td><input type="file" name="avatar"></td>
         </tr>
         <tr>
-            <td>Ваш комментарий:</td><td><input type="text" name="comment"></td>
+            <td valign="top">Ваш комментарий:</td>
+        </tr>
+        <tr>
+            <td colspan="2"><textarea rows="7" cols="45" required name="comment"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><span class="small-hint">Можно использовать bbcode: [b][/b], [img][/img]</span></td>
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit" value="Отправить"></td>
@@ -56,10 +67,12 @@ if (is_array($comments) OR empty($comments)) {
 <table border="1">
 
     <?php
+    $comment_col = 0; // Счетчик комментариев
     foreach ($comments as $comment) {
-        echo "<tr><td rowspan='2' width='80px'><img src=\"images/" .$comment['avatar']. "\" width='80px' height='80px'></td><td>Имя: " .$comment['name']. "</td></tr>";
-        echo "<tr><td colspan='2'>Почта: " .$comment['email']. "</td></tr>";
-        echo "<tr><td width='300px' colspan='2'>" .$comment['comment']. "</td></tr>";
+        $comment_col++;
+        echo "<tr><td colspan='2'>Комментарий №" .$comment_col. " (" .$comment['dates']. ")</td></tr>";
+        echo "<tr><td width='80px'><img src=\"images/" .$comment['avatar']. "\" width='80px' height='80px'></td><td valign='top'>Имя: " .$comment['name']. " <br /> Почта: " .$comment['email']. " </td></tr>";
+        echo "<tr><td valign='top' width='400px' colspan='2' height='100px'>" .$comment['comment']. "</td></tr>";
         echo "<tr><td height='5px' bgcolor='black' colspan='2'></td></tr>";
     }
     }
