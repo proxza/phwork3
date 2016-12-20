@@ -95,6 +95,7 @@ if (is_array($comments) OR empty($comments)) {
 
     <?php
     $comment_col = 0; // Счетчик комментариев
+    krsort($comments);
     foreach ($comments as $comment) {
         $comment_col++;
         echo "<tr><td colspan='2'>Комментарий №<b>" .$comment_col. "</b> (" .$comment['dates']. ")</td></tr>";
