@@ -2,6 +2,7 @@
 
 CONST FILE_NAME = "db.txt";
 CONST FILE_BLACK = "blacklist.txt";
+CONST FILE_USERS = "users.txt";
 
 $comments = unserialize(file_get_contents(FILE_NAME));
 $blacklist = fopen(FILE_BLACK, "r");
@@ -54,5 +55,12 @@ if (isset($_POST['action']) && $_POST['action'] == "save"){
     file_put_contents(FILE_NAME, serialize($comments));
 
 }
+
+function auth($login, $password){
+    $dbusers = file_get_contents(FILE_USERS);
+    $dbusers = explode(":", $dbusers);
+
+}
+
 
 ?>
