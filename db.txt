@@ -1,1 +1,11 @@
-a:3:{i:0;a:5:{s:4:"name";s:5:"Dalas";s:5:"dates";s:16:"20.12.2016 10:08";s:5:"email";s:19:"proxza[at]gmail.com";s:6:"avatar";s:35:"bmw_m4_gts_safety_car-1920x1080.jpg";s:7:"comment";s:10:"eoihe see ";}i:1;a:5:{s:4:"name";s:5:"Dalas";s:5:"dates";s:16:"20.12.2016 10:19";s:5:"email";s:19:"proxza[at]gmail.com";s:6:"avatar";s:63:"2015 Vorsteiner Lamborghini Huracan 1920 x 1080 HDTV 1080p.jpeg";s:7:"comment";s:45:"цффццфвф фв фцв фыукуы233 ";}i:2;a:5:{s:4:"name";s:4:"АН";s:5:"dates";s:16:"20.12.2016 10:27";s:5:"email";s:15:"it[at]amm.dp.ua";s:6:"avatar";s:46:"roborace_driverless_electric_car-1920x1080.jpg";s:7:"comment";s:31:"фвфцв ф <b>ОЛОЛО</b>";}}
+a:6:{i:0;a:5:{s:4:"name";s:5:"Admin";s:5:"dates";s:16:"20.12.2016 14:06";s:5:"email";s:14:"admin[at]ru.ru";s:6:"avatar";s:12:"noavatar.png";s:7:"comment";s:95:"Проверка первого комментария без загрузки аватарки";}i:1;a:5:{s:4:"name";s:10:"Админ";s:5:"dates";s:16:"20.12.2016 14:06";s:5:"email";s:17:"admin[at]admin.ru";s:6:"avatar";s:35:"5029lenovo-thinkpad-z570-blackd.jpg";s:7:"comment";s:50:"Проверка загрузки аватарки";}i:2;a:5:{s:4:"name";s:4:"root";s:5:"dates";s:16:"20.12.2016 14:07";s:5:"email";s:18:"root[at]google.com";s:6:"avatar";s:15:"pp5OqAxrFmg.jpg";s:7:"comment";s:102:"Проверка переноса строк
+Каждое
+Слово
+На
+Новой
+Строке";}i:3;a:5:{s:4:"name";s:5:"Admin";s:5:"dates";s:16:"20.12.2016 14:08";s:5:"email";s:19:"proxza[at]gmail.com";s:6:"avatar";s:8:"navi.jpg";s:7:"comment";s:149:"Проверка ббкодов:
+<b>жирный текст</b>
+<i>курсив</i>
+<u>подчеркнутый</u>
+<s>зачеркнутый</s>";}i:4;a:5:{s:4:"name";s:6:"Бот";s:5:"dates";s:16:"20.12.2016 14:09";s:5:"email";s:16:"bot[at]yandex.ru";s:6:"avatar";s:15:"ducktective.jpg";s:7:"comment";s:132:"Проверка ббкода для вставки картинок
+<img src="http://php-academy.kiev.ua/logo_dnepr.png" alt="" />";}i:5;a:5:{s:4:"name";s:12:"Михаил";s:5:"dates";s:16:"20.12.2016 14:12";s:5:"email";s:19:"proxza[at]gmail.com";s:6:"avatar";s:12:"noavatar.png";s:7:"comment";s:145:"Просто так... <img src="https://vk.com/images/emoji/D83DDE00.png" alt="" /><img src="https://vk.com/images/emoji/D83DDC29.png" alt="" />";}}

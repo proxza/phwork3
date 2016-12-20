@@ -1,3 +1,5 @@
 test
 black
 admin
+yandex
+yahoo
