@@ -1,11 +1,12 @@
-a:8:{i:0;a:5:{s:4:"name";s:5:"Admin";s:5:"dates";s:16:"20.12.2016 14:06";s:5:"email";s:14:"admin[at]ru.ru";s:6:"avatar";s:12:"noavatar.png";s:7:"comment";s:95:"Проверка первого комментария без загрузки аватарки";}i:1;a:5:{s:4:"name";s:10:"Админ";s:5:"dates";s:16:"20.12.2016 14:06";s:5:"email";s:17:"admin[at]admin.ru";s:6:"avatar";s:35:"5029lenovo-thinkpad-z570-blackd.jpg";s:7:"comment";s:50:"Проверка загрузки аватарки";}i:2;a:5:{s:4:"name";s:4:"root";s:5:"dates";s:16:"20.12.2016 14:07";s:5:"email";s:18:"root[at]google.com";s:6:"avatar";s:15:"pp5OqAxrFmg.jpg";s:7:"comment";s:102:"Проверка переноса строк
-Каждое
-Слово
-На
-Новой
-Строке";}i:3;a:5:{s:4:"name";s:5:"Admin";s:5:"dates";s:16:"20.12.2016 14:08";s:5:"email";s:19:"proxza[at]gmail.com";s:6:"avatar";s:8:"navi.jpg";s:7:"comment";s:149:"Проверка ббкодов:
-<b>жирный текст</b>
-<i>курсив</i>
-<u>подчеркнутый</u>
-<s>зачеркнутый</s>";}i:4;a:5:{s:4:"name";s:6:"Бот";s:5:"dates";s:16:"20.12.2016 14:09";s:5:"email";s:16:"bot[at]yandex.ru";s:6:"avatar";s:15:"ducktective.jpg";s:7:"comment";s:132:"Проверка ббкода для вставки картинок
-<img src="http://php-academy.kiev.ua/logo_dnepr.png" alt="" />";}i:5;a:5:{s:4:"name";s:12:"Михаил";s:5:"dates";s:16:"20.12.2016 14:12";s:5:"email";s:19:"proxza[at]gmail.com";s:6:"avatar";s:12:"noavatar.png";s:7:"comment";s:145:"Просто так... <img src="https://vk.com/images/emoji/D83DDE00.png" alt="" /><img src="https://vk.com/images/emoji/D83DDC29.png" alt="" />";}i:6;a:5:{s:4:"name";s:4:"test";s:5:"dates";s:16:"20.12.2016 15:05";s:5:"email";s:15:"test[at]test.ru";s:6:"avatar";s:31:"ss+(2016-10-06+at+10.31.18).jpg";s:7:"comment";s:16:"awdadawd awa aw ";}i:7;a:5:{s:4:"name";s:12:"Михаил";s:5:"dates";s:16:"20.12.2016 15:09";s:5:"email";s:18:"admin[at]phwork.ru";s:6:"avatar";s:15:"pp5OqAxrFmg.jpg";s:7:"comment";s:106:"Сортировка. Теперь новые комментарии показываются сверху";}}
+a:6:{i:0;a:5:{s:4:"name";s:5:"admin";s:5:"dates";s:16:"20.12.2016 23:17";s:5:"email";s:18:"admin[at]localhost";s:6:"avatar";s:12:"noavatar.png";s:7:"comment";s:305:"Проверка первого комментария. Без загрузки аватарки. По умолчанию должно создать папку с id в директории img и перенести туда файлик noavatar.png и вставить на место аватарки.";}i:1;a:5:{s:4:"name";s:5:"admin";s:5:"dates";s:16:"20.12.2016 23:18";s:5:"email";s:18:"admin[at]127.0.0.1";s:6:"avatar";s:23:"1450692509125147471.png";s:7:"comment";s:112:"Теперь проверка второго комментария уже с загрузкой аватара ";}i:2;a:5:{s:4:"name";s:5:"admin";s:5:"dates";s:16:"20.12.2016 23:19";s:5:"email";s:19:"proxza[at]gmail.com";s:6:"avatar";s:11:"6086750.jpg";s:7:"comment";s:132:"Третий коммент. 
+Проверка
+Перевода
+Строк
+Каждая 
+Строка
+Переноситься";}i:3;a:5:{s:4:"name";s:5:"admin";s:5:"dates";s:16:"20.12.2016 23:21";s:5:"email";s:13:"fbi[at]gov.us";s:6:"avatar";s:24:"1432610348_just doge.png";s:7:"comment";s:148:"Проверка ббкодов
+<b>Жирный текст</b>
+<i>Курсив</i>
+<u>Подчеркнутый</u>
+<s>Зачеркнутый</s>";}i:4;a:5:{s:4:"name";s:5:"admin";s:5:"dates";s:16:"20.12.2016 23:22";s:5:"email";s:17:"root[at]potato.by";s:6:"avatar";s:23:"1453797861166017879.jpg";s:7:"comment";s:201:"Теперь проверка ббкода для вставки картинки (img), вставлю лого пхп-академии:
+<img src="http://php-academy.kiev.ua/logo_dnepr.png" alt="" />";}i:5;a:5:{s:4:"name";s:5:"admin";s:5:"dates";s:16:"20.12.2016 23:25";s:5:"email";s:22:"snouden[at]america.gov";s:6:"avatar";s:9:"giphy.gif";s:7:"comment";s:204:"С новым годом чо <img src="https://vk.com/images/emoji/D83CDF85.png" alt="" /><img src="https://vk.com/images/emoji/D83DDC29.png" alt="" /><img src="https://vk.com/images/blank.gif" alt="" />";}}

@@ -2,7 +2,6 @@
 
 CONST FILE_NAME = "db.txt";
 CONST FILE_BLACK = "blacklist.txt";
-CONST FILE_USERS = "users.txt";
 
 $comments = unserialize(file_get_contents(FILE_NAME));
 $blacklist = fopen(FILE_BLACK, "r");
@@ -12,7 +11,8 @@ $block = [];
 if (isset($_POST['action']) && $_POST['action'] == "save"){
 
     // Инициализируем для удобства наши переменные из POST'а
-    $name = $_POST['name'];
+    $idDir = "img/" .$_SESSION['uid']; // Переменная совмещающая id юзера и путь к его папке для картинок
+    $name = $_SESSION['name'];
     $dates = date("d.m.Y G:i");
     $comment = $_POST['comment'];
     $email = $_POST['email'];
@@ -23,13 +23,21 @@ if (isset($_POST['action']) && $_POST['action'] == "save"){
         // достаем разрешение
         list($file_name, $ext) = explode(".", $_FILES['avatar']['name']);
 
-        // копирование файлика
-        //copy($_FILES['avatar']['tmp_name'], "images/".md5(microtime()).".".$ext);
-        copy($_FILES['avatar']['tmp_name'], "img/" . $_FILES['avatar']['name']);
+        // Если папки с номером id юзера нет - создаем
+        if (!is_dir($idDir)){
+            mkdir($idDir);
+        }
+
+        // Копирование файла
+        @copy($_FILES['avatar']['tmp_name'], $idDir. "/" .$_FILES['avatar']['name']);
+
         // удаление файла временного
         @($_FILES['avatar']['tmp_name']);
+
     }else{
+
         $avatar = "noavatar.png"; // Если пользователь не загрузил аватарку, ставим ему аватарку по умолчанию
+        @copy("img/noavatar.png", $idDir. "/" .$avatar);
     }
 
     if (!is_array($comments)){
@@ -55,12 +63,5 @@ if (isset($_POST['action']) && $_POST['action'] == "save"){
     file_put_contents(FILE_NAME, serialize($comments));
 
 }
-
-function auth($login, $password){
-    $dbusers = file_get_contents(FILE_USERS);
-    $dbusers = explode(":", $dbusers);
-
-}
-
 
 ?>

@@ -3,8 +3,15 @@
 session_start();
 include "process.php";
 
+// Проверка на выход через ссылку (get)
+if (isset($_GET['exit'])){
+    unset($_SESSION['name']);
+    unset($_SESSION['uid']);
+}
+
+// Проверка на авторизацию, если в сессии есть имя - значит пользователь прошел верификацию
 if (!isset($_SESSION['name'])){
- header("Location: http://php1.local/phwork3/login.php");
+ header("Location: login.php");
 }
 
 ?>
@@ -41,6 +48,11 @@ if (!isset($_SESSION['name'])){
             width: 381px;
         }
 
+        .input-name {
+            width: 381px;
+            background: #a8a8a8;
+        }
+
         .img-avatar {
             border-radius: 5px;
             width: 100px;
@@ -49,6 +61,12 @@ if (!isset($_SESSION['name'])){
 
         h2 {
             text-align: center;
+        }
+
+        .a-link {
+            text-align: center;
+            font-size: 10px;
+            text-decoration: none;
         }
 
     </style>
@@ -61,12 +79,11 @@ if (!isset($_SESSION['name'])){
 if (is_array($comments) OR empty($comments)) {
 
 ?>
-<h2>Комментарии</h2>
-
+<h2 name="top">Комментарии</h2>
 <form action="" method="post" enctype="multipart/form-data">
     <table>
         <tr>
-            <td>Ваше имя:</td><td><input type="text" name="name" class="input" placeholder="Введите ваше имя"></td>
+            <td>Ваше имя:</td><td><b><?=$_SESSION['name'];?></b></td>
         </tr>
         <tr>
             <td>Ваша почта:</td><td><input type="email" name="email" class="input" placeholder="Введите вашу почту"></td>
@@ -85,6 +102,9 @@ if (is_array($comments) OR empty($comments)) {
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit" value="Отправить"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><a class="a-link" href="index.php?exit">[выход]</a></td>
             <input type="hidden" value="save" name="action">
         </tr>
     </table>
@@ -98,10 +118,10 @@ if (is_array($comments) OR empty($comments)) {
     krsort($comments);
     foreach ($comments as $comment) {
         $comment_col++;
-        echo "<tr><td colspan='2'>Комментарий №<b>" .$comment_col. "</b> (" .$comment['dates']. ")</td></tr>";
-        echo "<tr><td width='80px'><img src=\"img/" .$comment['avatar']. "\" class='img-avatar'></td><td valign='top'>Имя: <b>" .$comment['name']. "</b> <br /> Почта: <b>" .$comment['email']. "</b> </td></tr>";
+        echo "<tr><td colspan='2'>Комментарий №<b><a name='" .$comment_col. "'> " .$comment_col. " </a></b> (" .$comment['dates']. ")</td></tr>";
+        echo "<tr><td width='80px'><img src=\"img/" .$_SESSION['uid']. "/" .$comment['avatar']. "\" class='img-avatar'></td><td valign='top'>Имя: <b>" .$comment['name']. "</b> <br /> Почта: <b>" .$comment['email']. "</b> </td></tr>";
         echo "<tr><td valign='top' width='400px' colspan='2' height='120px' class='td-borders'>" .nl2br($comment['comment']). "</td></tr>";
-        echo "<tr><td>&nbsp;</td></tr>";
+        echo "<tr><td colspan='2' align='center'><a class=\"a-link\" href='#top'>наверх</a></td></tr>";
         echo "<tr><td height='2px' bgcolor='black' colspan='2'></td></tr>";
     }
     }
