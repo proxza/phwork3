@@ -11,25 +11,29 @@ $block = [];
 if (isset($_POST['action']) && $_POST['action'] == "save"){
 
     // Инициализируем для удобства наши переменные из POST'а
-    $idDir = "img/" .$_SESSION['uid']; // Переменная совмещающая id юзера и путь к его папке для картинок
+    $id = trim($_SESSION['uid']);
     $name = $_SESSION['name'];
     $dates = date("d.m.Y G:i");
     $comment = $_POST['comment'];
     $email = $_POST['email'];
-    $avatar = $_FILES['avatar']['name'];
+    $idDir = "img/".$id; // Переменная совмещающая id юзера и путь к его папке для картинок
+    //$avatar = microtime();
+
+    // Если папки с номером id юзера нет - создаем
+    if (!is_dir($idDir)){
+        mkdir($idDir);
+    }
 
     // Проверка на загрузку аватара
     if (!empty($_FILES['avatar']['name'])) {
         // достаем разрешение
         list($file_name, $ext) = explode(".", $_FILES['avatar']['name']);
 
-        // Если папки с номером id юзера нет - создаем
-        if (!is_dir($idDir)){
-            mkdir($idDir);
-        }
+        // Делаем md5-хеш с названием и разрешением нашей картинки
+        $avatar = md5(microtime()).".".$ext;
 
         // Копирование файла
-        @copy($_FILES['avatar']['tmp_name'], $idDir. "/" .$_FILES['avatar']['name']);
+        @copy($_FILES['avatar']['tmp_name'], $idDir. "/" .$avatar);
 
         // удаление файла временного
         @($_FILES['avatar']['tmp_name']);
@@ -52,14 +56,14 @@ if (isset($_POST['action']) && $_POST['action'] == "save"){
 
     // Проверяем наши слова в комментариях на запрещенные
     foreach ($block as $item){
-        $comment = str_replace($item, "[МАТ]", $comment);
+        $comment = str_replace($item, "<span class='danger'>[МАТ]</span>", $comment);
     }
 
     $email = str_replace("@", "[at]", $email); // Замена адреса почты
     $comment = preg_replace('/\[(\/?)(b|i|u|s)\s*\]/', "<$1$2>", $comment); // Регулярка на BBCOD'ы для тегов <b>, <i>, <s>, <u>
     $comment = preg_replace("/\[img\s*\]([^\]\[]+)\[\/img\]/", "<img src=\"$1\" alt=\"\" />", $comment); // Регулярка на BBCODE тега [img]адрес_картинки[/img]
 
-    array_push($comments, ["name"=>$name, "dates"=>$dates, "email"=>$email, "avatar"=>$avatar, "comment"=>$comment]);
+    array_push($comments, ["id"=>$id, "name"=>$name, "dates"=>$dates, "email"=>$email, "avatar"=>$avatar, "comment"=>$comment]);
     file_put_contents(FILE_NAME, serialize($comments));
 
 }

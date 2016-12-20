@@ -7,14 +7,16 @@ CONST FILE_USERS = "users.txt";
 $dbusers = file_get_contents(FILE_USERS);
 $dbusers = explode(":", $dbusers);
 
+$suser = array_search($_POST['login'], $dbusers);
+$spass = array_search($_POST['password'], $dbusers);
 
-//if (isset($_POST['submit'])) {
-    if ($dbusers[1] == $_POST['login'] && $dbusers[2] == $_POST['password']){
-    $_SESSION['name'] = $_POST['login'];
-    $_SESSION['uid'] = $dbusers[0];
-    header("Location: index.php");
+if (isset($_POST['on'])) {
+    if ($dbusers[$suser] == $_POST['login'] && $dbusers[$spass] == $_POST['password']) {
+        $_SESSION['name'] = $_POST['login'];
+        $_SESSION['uid'] = $dbusers[$suser - 1];
+        header("Location: index.php");
     }
-//}
+}
 
 ?>
 <html>

@@ -69,6 +69,12 @@ if (!isset($_SESSION['name'])){
             text-decoration: none;
         }
 
+        .danger {
+            font-size: 12px;
+            font-weight: bold;
+            color: red;
+        }
+
     </style>
 </head>
 
@@ -119,7 +125,7 @@ if (is_array($comments) OR empty($comments)) {
     foreach ($comments as $comment) {
         $comment_col++;
         echo "<tr><td colspan='2'>Комментарий №<b><a name='" .$comment_col. "'> " .$comment_col. " </a></b> (" .$comment['dates']. ")</td></tr>";
-        echo "<tr><td width='80px'><img src=\"img/" .$_SESSION['uid']. "/" .$comment['avatar']. "\" class='img-avatar'></td><td valign='top'>Имя: <b>" .$comment['name']. "</b> <br /> Почта: <b>" .$comment['email']. "</b> </td></tr>";
+        echo "<tr><td width='80px'><img src=\"img/" .$comment['id']. "/" .$comment['avatar']. "\" class='img-avatar'></td><td valign='top'>Имя: <b>" .$comment['name']. "</b> <br /> Почта: <b>" .$comment['email']. "</b> </td></tr>";
         echo "<tr><td valign='top' width='400px' colspan='2' height='120px' class='td-borders'>" .nl2br($comment['comment']). "</td></tr>";
         echo "<tr><td colspan='2' align='center'><a class=\"a-link\" href='#top'>наверх</a></td></tr>";
         echo "<tr><td height='2px' bgcolor='black' colspan='2'></td></tr>";
